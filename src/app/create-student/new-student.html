@@ -1,0 +1,41 @@
+<form #studentF="ngForm" class="container col-lg-5 col-lg-offset-3" style="margin-top:100px;border:0.5px solid;border-radius:10px;padding:20px;background	:#F0F0F0">
+    <div class="form-group">
+        <label for="text">Ime:</label>
+        <input type="text" class="form-control" id="ime" required minlength="2" maxlength="30" [(ngModel)]="student.ime" name="ime" #ime="ngModel">
+        <div *ngIf="ime.errors && (ime.dirty || ime.touched)" class="alert alert-danger">
+          <div [hidden]="!ime.errors.required">
+            Book title is required!
+          </div>
+          <div [hidden]="!ime.errors.minlength">
+            Title must be at least 5 characters long.
+          </div>
+          <div [hidden]="!ime.errors.maxlength">
+            Title cannot be more than 30 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="text">Prezime:</label>
+        <input type="text" class="form-control" id="prezime" required minlength="2" maxlength="30" [(ngModel)]="student.prezime" name="prezime" #prezime="ngModel">
+        <div *ngIf="prezime.errors && (prezime.dirty || prezime.touched)" class="alert alert-danger">
+          <div [hidden]="!prezime.errors.required">
+            Prezime is required!
+          </div>
+          <div [hidden]="!prezime.errors.minlength">
+            Prezime must be at least 2 characters long.
+          </div>
+          <div [hidden]="!prezime.errors.maxlength">
+            Prezime cannot be more than 30 characters long.
+          </div>
+        </div>
+      </div>
+    <div class="form-group">
+        <label for="text">Index:</label>
+        <input type="text" class="form-control" pattern="^[1-9]{1,6}$" required name="index" minlength="6" maxlength="6" [(ngModel)]="student.index">
+    </div>
+    <div class="form-group">
+        <label for="text">Nasoka:</label>
+        <input type="text" class="form-control" pattern="\b(KNI)\b" required name="nasoka" [(ngModel)]="student.nasoka">
+    </div>
+    <button type="submit" class="btn btn-default" (click)="saveStudent()" [disabled]="!studentF.form.valid">Save</button>
+</form>

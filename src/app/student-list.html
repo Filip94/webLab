@@ -1,0 +1,9 @@
+<div class="container col-lg-5 col-lg-offset-3" style="margin-top:100px;border:0.5px solid;border-radius:10px;padding:20px;background	:#F0F0F0">
+    <h2>Lab1,Lab2</h2>
+    <div class="list-group">
+      <a class="list-group-item" [routerLink]="['/details',student.index]" *ngFor="let student of studentsArray" (click)="selectStudent(student)">
+        <p class="list-group-item-text"  >{{student.ime}} {{student.prezime}}</p>
+      </a>
+    </div>
+    <button class="btn btn-default" [routerLink]="['/new']">Create Student</button>
+  </div>

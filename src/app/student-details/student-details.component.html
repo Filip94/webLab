@@ -1,0 +1,13 @@
+<div class="container col-lg-5 col-lg-offset-3" style="margin-top:100px;border:0.5px solid;border-radius:10px;padding:20px;background	:#F0F0F0">
+<!-- <div class="container col-lg-3"> -->
+    <div *ngIf="student" class="list-group">
+    <h4>Student details</h4>
+    <ul class="list-group">
+    <li class="list-group-item">Ime: {{student.ime}}</li>
+    <li class="list-group-item">Prezime: {{student.prezime}}</li>
+    <li class="list-group-item">Index: {{student.index}}</li>
+    <li class="list-group-item">Nasoka: {{student.nasoka}}</li>
+  </ul>
+  </div>
+  <button class="btn btn-default" [routerLink]="['/edit',student.index]">Уреди</button>
+</div>
